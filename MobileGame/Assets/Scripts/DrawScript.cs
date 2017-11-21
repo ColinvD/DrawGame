@@ -8,6 +8,8 @@ public class DrawScript : MonoBehaviour {
     private SpriteRenderer sprite;
     [SerializeField]
     private Material[] materials;
+    
+    public List<GameObject> lines;
     public GameObject trailPrefab;
     GameObject thisTrail;
     Vector3 startPos;
@@ -24,6 +26,7 @@ public class DrawScript : MonoBehaviour {
         {
             thisTrail = (GameObject)Instantiate(trailPrefab, this.transform.position, Quaternion.identity);
             thisTrail.GetComponent<TrailRenderer>().material = materials[0];
+            lines.Add(thisTrail);
             Ray mRay = Camera.main.ScreenPointToRay(Input.mousePosition);
             float rayDistance;
             if (objPlane.Raycast(mRay, out rayDistance))
