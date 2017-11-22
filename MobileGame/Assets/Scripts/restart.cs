@@ -11,10 +11,5 @@ public class restart : MonoBehaviour {
     {
         
         Application.LoadLevel(0);
-        for (int i = 0; i < draw.lines.Count; i++)
-        {
-            draw.lines.Remove(draw.lines[i]);
-        }
-
     }
 }
